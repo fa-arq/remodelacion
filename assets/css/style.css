@@ -591,7 +591,7 @@ form#contact-form h3 {
     box-shadow: 0px 30px 35px 0px rgb(0 0 0 / 39%);
     width: 94%;
     margin-left: auto;
-    scroll-margin-top: 80px;
+    scroll-margin-top: 20px;
 }
 
 .get-a-quote input[type="text"],
@@ -840,7 +840,7 @@ ul.shaps-img li:nth-child(2) {
 @media (max-width: 992px) {
     #scroll-percentage {
         right: 15px;
-        bottom: 80px;
+        bottom: 30px;
     }
 }
 
@@ -849,7 +849,7 @@ ul.shaps-img li:nth-child(2) {
         width: 55px;
         height: 55px;
         right: 15px;
-        bottom: 80px;
+        bottom: 30px;
     }
 
     #scroll-percentage i {
@@ -874,13 +874,13 @@ ul.shaps-img li:nth-child(2) {
 
 @media (max-width: 992px) {
     #scroll-percentage.active {
-        bottom: 80px;
+        bottom: 30px;
     }
 }
 
 @media (max-width: 576px) {
     #scroll-percentage.active {
-        bottom: 80px;
+        bottom: 30px;
     }
 }
 

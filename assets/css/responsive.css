@@ -894,6 +894,6 @@
 
   /* Ajustar scroll del formulario en móvil */
   .get-a-quote {
-    scroll-margin-top: 60px !important;
+    scroll-margin-top: 20px !important;
   }
 }
