@@ -7,6 +7,12 @@ body {
 }
 
 
+/* Thank you: colores oscuros en desktop (form blanco) */
+@media (min-width: 992px) {
+    #form-thank-you h3 { color: #222 !important; }
+    #form-thank-you p  { color: #555 !important; }
+}
+
 /* Desktop: reducir espacio muerto hero */
 @media (min-width: 992px) {
     .hero-section {
