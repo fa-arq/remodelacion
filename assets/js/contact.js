@@ -1,3 +1,17 @@
+// Capturar parámetros de URL (gclid, UTMs) al cargar
+jQuery(document).ready(function () {
+  var params = new URLSearchParams(window.location.search);
+  var gclid = params.get('gclid') || sessionStorage.getItem('gclid') || '';
+  if (params.get('gclid')) sessionStorage.setItem('gclid', params.get('gclid'));
+  jQuery('#gclid_field').val(gclid);
+  jQuery('#utm_source_field').val(params.get('utm_source') || sessionStorage.getItem('utm_source') || '');
+  jQuery('#utm_medium_field').val(params.get('utm_medium') || sessionStorage.getItem('utm_medium') || '');
+  jQuery('#utm_campaign_field').val(params.get('utm_campaign') || sessionStorage.getItem('utm_campaign') || '');
+  if (params.get('utm_source')) sessionStorage.setItem('utm_source', params.get('utm_source'));
+  if (params.get('utm_medium')) sessionStorage.setItem('utm_medium', params.get('utm_medium'));
+  if (params.get('utm_campaign')) sessionStorage.setItem('utm_campaign', params.get('utm_campaign'));
+});
+
 jQuery(document).ready(function () {
   jQuery('#contact-form').on('submit', function (e) {
     e.preventDefault();
@@ -25,10 +39,21 @@ jQuery(document).ready(function () {
         Email: email,
         Telefono: phone,
         Mensaje: message,
+        GCLID: jQuery('#gclid_field').val(),
+        UTM_Source: jQuery('#utm_source_field').val(),
+        UTM_Medium: jQuery('#utm_medium_field').val(),
+        UTM_Campaign: jQuery('#utm_campaign_field').val(),
         _subject: 'Nueva consulta desde Web Arquitectos',
         _template: 'table'
       },
       success: function (response) {
+        // Evento GA4: lead generado
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'generate_lead', {
+            event_category: 'form',
+            event_label: 'presupuesto'
+          });
+        }
         // Ocultar formulario y mostrar mensaje de agradecimiento
         jQuery('#form-content').fadeOut(300, function () {
           jQuery('#form-thank-you').fadeIn(400);

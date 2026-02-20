@@ -7,6 +7,28 @@ body {
 }
 
 
+/* Desktop: reducir espacio muerto hero */
+@media (min-width: 992px) {
+    .hero-section {
+        padding-top: 90px !important;
+        padding-bottom: 0px !important;
+    }
+    .hero-text {
+        padding-bottom: 10px !important;
+    }
+    .hero-text > div:has(.btn) {
+        margin-bottom: 0 !important;
+    }
+    /* Recortar espacio vacío inferior del formulario */
+    .get-a-quote {
+        padding-bottom: 20px !important;
+    }
+    .get-a-quote::after {
+        height: 0px !important;
+    }
+}
+
+
 .brings-leads-two img {
     height: 100%;
     width: 45%;
@@ -264,10 +286,16 @@ body {
    ============================================= */
 @media (max-width: 768px) {
 
+    /* full-background debe crecer con el contenido en mobile */
+    .full-background {
+        height: auto !important;
+    }
+
     /* Reducir padding de la sección hero */
     .hero-section {
         padding-top: 70px !important;
-        padding-bottom: 20px !important;
+        padding-bottom: 40px !important;
+        overflow: visible !important;
     }
 
     /* H1 separado del header y compacto */
@@ -353,7 +381,7 @@ body {
 
     .get-a-quote h6 {
         font-size: 13px !important;
-        margin-bottom: 10px !important;
+        margin-bottom: 6px !important;
         padding-bottom: 0 !important;
         color: rgba(255,255,255,0.85) !important;
     }
@@ -362,8 +390,8 @@ body {
     .get-a-quote input[type="text"],
     .get-a-quote input[type="email"],
     .get-a-quote input[type="number"] {
-        height: 36px !important;
-        margin-bottom: 5px !important;
+        height: 32px !important;
+        margin-bottom: 4px !important;
         font-size: 13px !important;
         padding: 0 14px !important;
         background-color: rgba(255,255,255,0.15) !important;
@@ -382,8 +410,8 @@ body {
 
     /* Textarea semitransparente */
     .get-a-quote textarea {
-        height: 44px !important;
-        margin-bottom: 6px !important;
+        height: 38px !important;
+        margin-bottom: 4px !important;
         font-size: 13px !important;
         padding: 10px 14px !important;
         background-color: rgba(255,255,255,0.15) !important;
@@ -429,6 +457,16 @@ body {
     .d-lg-none.review img.arror {
         top: -10px !important;
         right: 10% !important;
+    }
+
+    /* Review mobile: subir hacia el botón */
+    .review.d-lg-none {
+        margin-top: 6px !important;
+    }
+
+    /* Ocultar gradiente blanco que tapa el fondo del hero en mobile */
+    .full-background::before {
+        display: none !important;
     }
 }
 
