@@ -272,13 +272,24 @@ body {
 
     /* H1 separado del header y compacto */
     .hero-text h1 {
-        font-size: 24px !important;
+        font-size: 28px !important;
         line-height: 1.2 !important;
         margin-top: 14px !important;
         margin-bottom: 4px !important;
         text-transform: uppercase !important;
         letter-spacing: 0.01em !important;
         font-weight: 300 !important;
+    }
+
+    /* Subtítulo hero */
+    .hero-text p {
+        font-size: 23px !important;
+        line-height: 1.5 !important;
+    }
+    .hero-nosotros {
+        font-style: italic;
+        font-weight: 500;
+        letter-spacing: 0.03em;
     }
 
     /* "Realidad" en itálica bold - estética de arquitectura */
@@ -302,8 +313,8 @@ body {
 
     /* Descripción compacta en mobile */
     .hero-text .listing p {
-        font-size: 14px !important;
-        line-height: 1.35 !important;
+        font-size: 16px !important;
+        line-height: 1.4 !important;
         margin-bottom: 4px !important;
         padding-bottom: 0 !important;
     }
@@ -365,7 +376,8 @@ body {
     .get-a-quote input[type="text"]::placeholder,
     .get-a-quote input[type="email"]::placeholder,
     .get-a-quote input[type="number"]::placeholder {
-        color: rgba(255,255,255,0.8) !important;
+        color: rgba(255,255,255,1) !important;
+        opacity: 1 !important;
     }
 
     /* Textarea semitransparente */
@@ -381,7 +393,8 @@ body {
     }
 
     .get-a-quote textarea::placeholder {
-        color: rgba(255,255,255,0.8) !important;
+        color: rgba(255,255,255,1) !important;
+        opacity: 1 !important;
     }
 
     /* Botón ENVIAR blanco con texto oscuro */
