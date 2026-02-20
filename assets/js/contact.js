@@ -53,6 +53,9 @@ jQuery(document).ready(function () {
             event_category: 'form',
             event_label: 'presupuesto'
           });
+          gtag('event', 'conversion', {
+            'send_to': 'AW-932575203/c3CTCOCX-_sbEOPv17wD'
+          });
         }
         // Ocultar formulario y mostrar mensaje de agradecimiento
         jQuery('#form-content').fadeOut(300, function () {

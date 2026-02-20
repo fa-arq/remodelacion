@@ -154,6 +154,16 @@ function initWspButton() {
 
 window.addEventListener('load', initWspButton);
 
+// Tracking Google Ads: click en cualquier botón de WhatsApp
+document.addEventListener('click', function (e) {
+  var link = e.target.closest('a[href*="wa.me"]');
+  if (link && typeof gtag !== 'undefined') {
+    gtag('event', 'conversion', {
+      'send_to': 'AW-932575203/0GltCOOX-_sbEOPv17wD'
+    });
+  }
+});
+
 // Configuración para videos verticales (Instagram/TikTok style)
 $(document).ready(function () {
   // Destruir cualquier inicialización previa
