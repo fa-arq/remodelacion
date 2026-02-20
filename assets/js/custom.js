@@ -135,27 +135,24 @@ $(function () {
 
 })(window.jQuery);
 
-function scrollTopPercentage() {
-  const scrollPercentage = () => {
-    const scrollTopPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    const scrollElementWrap = $("#scroll-percentage");
+// WhatsApp flotante: aparece al primer scroll
+function initWspButton() {
+  var el = document.getElementById('scroll-percentage');
+  if (!el) return;
 
-    // ScrollProgress - Show WhatsApp button after scrolling just 50px (appears almost immediately)
-    if (scrollTopPos > 50) {
-      scrollElementWrap.addClass("active");
+  function updateWsp() {
+    if (window.scrollY > 10) {
+      el.classList.add('active');
     } else {
-      scrollElementWrap.removeClass("active");
+      el.classList.remove('active');
     }
   }
 
-  // Listen to scroll events
-  window.addEventListener('scroll', scrollPercentage, { passive: true });
-  window.addEventListener('load', scrollPercentage);
-
-  // Run immediately
-  scrollPercentage();
+  window.addEventListener('scroll', updateWsp);
+  updateWsp(); // estado inicial
 }
-scrollTopPercentage();
+
+window.addEventListener('load', initWspButton);
 
 // Configuración para videos verticales (Instagram/TikTok style)
 $(document).ready(function () {

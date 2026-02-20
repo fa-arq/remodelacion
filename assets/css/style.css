@@ -585,13 +585,12 @@ form#contact-form h3 {
     z-index: 11;
     margin-top: 30px;
     background-color: white;
-    padding: 35px 35px 95px 35px;
+    padding: 35px 35px 35px 35px;
     border-radius: 20px;
     position: relative;
     box-shadow: 0px 30px 35px 0px rgb(0 0 0 / 39%);
     width: 94%;
     margin-left: auto;
-    scroll-margin-top: 20px;
 }
 
 .get-a-quote input[type="text"],
@@ -675,6 +674,20 @@ form#contact-form h3 {
 .hero-text .btn:hover {
     color: #fff;
     background-color: #000;
+}
+
+
+
+.hero-section .col-lg-5 {
+    padding-bottom: 100px !important;
+}
+
+.get-a-quote::after {
+    content: '';
+    display: block;
+    height: 100px;
+    width: 100%;
+}
 }
 
 /* 06. heading */

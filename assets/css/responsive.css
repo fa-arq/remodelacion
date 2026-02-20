@@ -891,9 +891,4 @@
   .logo a div span:last-child {
     font-size: 19px !important;
   }
-
-  /* Ajustar scroll del formulario en móvil */
-  .get-a-quote {
-    scroll-margin-top: 20px !important;
-  }
 }

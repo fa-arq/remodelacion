@@ -1,3 +1,12 @@
+/* FIX: overflow en html rompe position:fixed en mobile */
+html {
+    overflow: visible !important;
+}
+body {
+    overflow-x: hidden !important;
+}
+
+
 .brings-leads-two img {
     height: 100%;
     width: 45%;
@@ -206,4 +215,241 @@
 .experience.text-style:hover::after {
     width: 100% !important;
     height: 100% !important;
+}
+
+/* --- BOTÓN VIDEO HERO --- */
+.hero-video-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.hero-video-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease;
+}
+
+.hero-video-circle i {
+    font-size: 14px;
+    color: #e05c3a;
+    margin-left: 2px;
+}
+
+.hero-video-btn:hover .hero-video-circle {
+    transform: scale(1.08);
+}
+
+.hero-video-btn span {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* =============================================
+   MOBILE HERO - Form transparente sobre hero
+   ============================================= */
+@media (max-width: 768px) {
+
+    /* Reducir padding de la sección hero */
+    .hero-section {
+        padding-top: 70px !important;
+        padding-bottom: 20px !important;
+    }
+
+    /* H1 separado del header y compacto */
+    .hero-text h1 {
+        font-size: 24px !important;
+        line-height: 1.2 !important;
+        margin-top: 14px !important;
+        margin-bottom: 4px !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.01em !important;
+        font-weight: 300 !important;
+    }
+
+    /* "Realidad" en itálica bold - estética de arquitectura */
+    .hero-text h1 .hero-accent {
+        font-style: italic !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.04em !important;
+        text-transform: uppercase !important;
+    }
+
+    /* Ocultar tagline en mobile */
+    .hero-text > span {
+        display: none !important;
+    }
+
+    /* Ocultar fotos de reviews y botón pill, mostrar descripción */
+    .hero-text .review,
+    .hero-text > div:has(.btn) {
+        display: none !important;
+    }
+
+    /* Descripción compacta en mobile */
+    .hero-text .listing p {
+        font-size: 14px !important;
+        line-height: 1.35 !important;
+        margin-bottom: 4px !important;
+        padding-bottom: 0 !important;
+    }
+
+    /* Formulario: eliminar cuadrado blanco, hacer transparente */
+    .get-a-quote,
+    form#contact-form.get-a-quote {
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 4px 0 4px !important;
+        margin-top: 0 !important;
+        border-radius: 0 !important;
+        min-height: 0 !important;
+        overflow: visible !important;
+    }
+
+    /* Ocultar imagen decorativa */
+    .get-a-quote img.lins {
+        display: none !important;
+    }
+
+    /* Eliminar espacio interno del form-content */
+    #form-content {
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* Títulos en blanco sobre el fondo del hero */
+    .get-a-quote h3 {
+        font-size: 18px !important;
+        margin-bottom: 2px !important;
+        color: #fff !important;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.35) !important;
+    }
+
+    .get-a-quote h6 {
+        font-size: 13px !important;
+        margin-bottom: 10px !important;
+        padding-bottom: 0 !important;
+        color: rgba(255,255,255,0.85) !important;
+    }
+
+    /* Inputs semitransparentes blancos */
+    .get-a-quote input[type="text"],
+    .get-a-quote input[type="email"],
+    .get-a-quote input[type="number"] {
+        height: 36px !important;
+        margin-bottom: 5px !important;
+        font-size: 13px !important;
+        padding: 0 14px !important;
+        background-color: rgba(255,255,255,0.15) !important;
+        border: 1px solid rgba(255,255,255,0.6) !important;
+        color: #fff !important;
+        border-radius: 12px !important;
+    }
+
+    /* Placeholders en blanco */
+    .get-a-quote input[type="text"]::placeholder,
+    .get-a-quote input[type="email"]::placeholder,
+    .get-a-quote input[type="number"]::placeholder {
+        color: rgba(255,255,255,0.8) !important;
+    }
+
+    /* Textarea semitransparente */
+    .get-a-quote textarea {
+        height: 44px !important;
+        margin-bottom: 6px !important;
+        font-size: 13px !important;
+        padding: 10px 14px !important;
+        background-color: rgba(255,255,255,0.15) !important;
+        border: 1px solid rgba(255,255,255,0.6) !important;
+        color: #fff !important;
+        border-radius: 12px !important;
+    }
+
+    .get-a-quote textarea::placeholder {
+        color: rgba(255,255,255,0.8) !important;
+    }
+
+    /* Botón ENVIAR blanco con texto oscuro */
+    .get-a-quote .btn {
+        background: #fff !important;
+        color: #333 !important;
+        border-color: #fff !important;
+        margin-bottom: 0 !important;
+    }
+
+    .get-a-quote .btn svg {
+        color: #333 !important;
+        fill: #333 !important;
+    }
+
+    /* Eliminar espacios extra debajo del formulario */
+    .hero-section .col-lg-5 {
+        padding-bottom: 0 !important;
+    }
+
+    .get-a-quote::after {
+        display: none !important;
+        height: 0 !important;
+    }
+
+    /* Ocultar pills decorativos de sección ("Cómo Funciona", etc.) */
+    .heading > span {
+        display: none !important;
+    }
+
+    /* Flecha del review en mobile: cerca del texto */
+    .d-lg-none.review img.arror {
+        top: -10px !important;
+        right: 10% !important;
+    }
+}
+
+/* =============================================
+   BOTÓN FLOTANTE WHATSAPP - Solo mobile
+   ============================================= */
+.mobile-wsp-float {
+    display: flex;
+    position: fixed;
+    bottom: 20px;
+    right: 18px;
+    z-index: 9999;
+    width: 52px;
+    height: 52px;
+    background-color: #25D366;
+    border-radius: 50%;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.5);
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.mobile-wsp-float i {
+    font-size: 28px;
+    color: #fff;
+}
+
+.mobile-wsp-float:hover {
+    transform: scale(1.08);
+}
+
+@media (min-width: 992px) {
+    .mobile-wsp-float {
+        display: none;
+    }
 }

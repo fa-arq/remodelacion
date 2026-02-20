@@ -19,11 +19,11 @@
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="assets/css/fontawesome.min.css">
   <!-- style -->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=2026021608">
   <!-- responsive -->
-  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/responsive.css?v=2026021608">
   <!-- custom edits -->
-  <link rel="stylesheet" href="assets/css/custom_fix.css">
+  <link rel="stylesheet" href="assets/css/custom_fix.css?v=2026022002">
   <style>
     /* FIX: Igualar alturas de tarjetas experience */
     #services .row.g-4 {
@@ -41,6 +41,28 @@
     #services .row.g-4>.col-lg-8>.experience {
       width: 100%;
       flex-grow: 1 !important;
+    }
+
+    @media (max-width: 768px) {
+      #form-content {
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+      }
+    }
+
+    /* WhatsApp flotante - fix overflow para que position:fixed funcione en mobile */
+    html { overflow: visible !important; }
+    body { overflow-x: hidden !important; }
+    #scroll-percentage {
+      position: fixed !important;
+      bottom: 20px !important;
+      right: 15px !important;
+      z-index: 2147483647 !important;
+    }
+    /* Neutralizar scrollToTop (empieza en translate3d(0,80%,0)) - solo pulse */
+    #scroll-percentage.active {
+      animation: pulse 2s infinite !important;
+      transform: scale(1) !important;
     }
   </style>
 </head>
@@ -118,10 +140,18 @@
           <div class="col-lg-7">
             <div class="hero-text">
               <span>ARQUITECTURA. GESTIÓN. CONSTRUCCIÓN.</span>
-              <h1>Hacemos tu Remodelación Realidad</h1>
+              <h1>Hacemos tu Remodelación<br><em class="hero-accent">Realidad</em></h1>
               <div class="d-flex listing">
                 <p>Diseño, habilitación municipal, construcción y entrega. Todo resuelto por nosotros.</p>
               </div>
+              <!-- Botón video hero - solo mobile -->
+              <a class="hero-video-btn d-lg-none" data-fancybox
+                href="https://www.youtube.com/embed/jGQCCtIUYZw?autoplay=1&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3">
+                <div class="hero-video-circle">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+                <span>Publicidad TV DDM</span>
+              </a>
               <div>
                 <a href="#contact-form" class="btn">
                   <span>
@@ -136,7 +166,7 @@
                 </a>
               </div>
             </div>
-            <div class="review">
+            <div class="review d-none d-lg-flex">
               <ul>
                 <li><img src="assets/img/external/review_1.jpg?v=2" alt="Review 1" title="Mariana Fabbiani"
                     style="object-fit: cover;"></li>
@@ -147,7 +177,6 @@
                 <li><a href="#">+</a></li>
               </ul>
               <div>
-                </ul>
                 <span>100% Tasa de Satisfacción</span>
               </div>
               <img src="assets/img/arror.png" alt="img" class="arror">
@@ -159,8 +188,7 @@
 
               <!-- Contenido del formulario -->
               <div id="form-content">
-                <h3>Entrevista sin Compromiso</h3>
-                <h6>Un arquitecto te contacta pronto</h6>
+                <h3>Presupuesto sin Cargo</h3>
                 <input type="text" name="Complete_Name" placeholder="Nombre Completo" required="">
                 <input type="email" name="Email_Address" placeholder="Correo Electrónico" required="">
                 <input type="number" name="Phone_No" placeholder="Teléfono" required="">
@@ -180,7 +208,7 @@
               </div>
 
               <!-- Mensaje de agradecimiento (oculto inicialmente) -->
-              <div id="form-thank-you" style="display: none; text-align: center; padding: 40px 20px;">
+              <div id="form-thank-you" style="display: none; height: 0; padding: 0; overflow: hidden; text-align: center;">
                 <div style="font-size: 60px; margin-bottom: 20px;">✅</div>
                 <h3 style="margin-bottom: 15px; color: #000;">¡Gracias!</h3>
                 <p style="font-size: 18px; color: #555; line-height: 1.6; margin-bottom: 25px;">Nos estaremos
@@ -193,6 +221,19 @@
               </div>
               <!--   -->
             </form>
+            <!-- Review visible solo en mobile, debajo del form -->
+            <div class="review d-lg-none" style="margin-top: 16px;">
+              <ul>
+                <li><img src="assets/img/external/review_1.jpg?v=2" alt="Review 1" title="Mariana Fabbiani" style="object-fit: cover;"></li>
+                <li><img src="assets/img/external/review_2.jpg?v=2" alt="Review 2" title="Nazarena Velez" style="object-fit: cover;"></li>
+                <li><img src="assets/img/external/review_3.jpg?v=2" alt="Review 3" title="Laura Ubfal (Imagen Ilustrativa)" style="object-fit: cover;"></li>
+                <li><a href="#">+</a></li>
+              </ul>
+              <div>
+                <span>100% Tasa de Satisfacción</span>
+              </div>
+              <img src="assets/img/arror.png" alt="img" class="arror">
+            </div>
           </div>
         </div>
       </div>
@@ -955,7 +996,7 @@
   <script src="assets/js/splitText.js"></script>
   <script src="assets/js/gsap.js"></script>
   <script src="assets/js/scrolltrigger.js"></script>
-  <script src="assets/js/custom.js"></script>
+  <script src="assets/js/custom.js?v=202602203"></script>
   <script src="assets/js/sweetalert.min.js"></script>
   <script src="assets/js/contact.js"></script>
   <script>
@@ -1002,5 +1043,8 @@
 
     // Also run on resize
     window.addEventListener('resize', equalizeExperienceHeights);
+
   </script>
+
+
 </body>
